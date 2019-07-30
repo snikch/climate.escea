@@ -1,0 +1,9 @@
+version: '2'
+
+services:
+  ha:
+    image: homeassistant/home-assistant
+    network_mode: host
+    volumes:
+      - ./config:/config
+      - ./custom_components:/config/custom_components
