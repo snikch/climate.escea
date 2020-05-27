@@ -4,7 +4,7 @@ import escea
 from datetime import timedelta
 from typing import List, Optional
 
-from homeassistant.components.climate import ClimateDevice
+from homeassistant.components.climate import ClimateEntity
 from homeassistant.components.climate.const import (
     HVAC_MODE_HEAT,
     FAN_AUTO, FAN_ON,
@@ -37,7 +37,7 @@ async def async_setup_platform(hass, config, async_add_entities,
     return
 
 
-class EsceaFire(ClimateDevice):
+class EsceaFire(ClimateEntity):
     """Representation of a Escea Fire."""
 
     def __init__(self, fire):
