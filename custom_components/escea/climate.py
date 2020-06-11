@@ -43,6 +43,7 @@ class EsceaFire(ClimateEntity):
     def __init__(self, fire):
         """Initialize the fire."""
         self._fire = fire
+        self._unique_id = "escea_{}".format(self._fire.serial())
         self.update()
 
     @property
@@ -57,6 +58,11 @@ class EsceaFire(ClimateEntity):
     def name(self):
         """Return the name of the fire."""
         return "Escea {}".format(self._fire.serial())
+    
+    @property
+    def unique_id(self) -> str:
+        """Return the unique ID for this sensor."""
+        return self._unique_id
 
     @property
     def temperature_unit(self):
