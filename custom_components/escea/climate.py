@@ -6,12 +6,11 @@ from typing import List, Optional
 
 from homeassistant.components.climate import ClimateDevice
 from homeassistant.components.climate.const import (
-    HVAC_MODE_HEAT,
     FAN_AUTO, FAN_ON,
-    SUPPORT_PRESET_MODE, SUPPORT_FAN_MODE,
-    SUPPORT_TARGET_TEMPERATURE, HVAC_MODE_OFF, CURRENT_HVAC_HEAT,
-    PRESET_NONE,
-    CURRENT_HVAC_IDLE)
+    SUPPORT_PRESET_MODE, SUPPORT_FAN_MODE, SUPPORT_TARGET_TEMPERATURE, 
+    HVAC_MODE_OFF, HVAC_MODE_HEAT,
+    CURRENT_HVAC_OFF, CURRENT_HVAC_HEAT,
+    PRESET_NONE)
 from homeassistant.const import (
     ATTR_TEMPERATURE, TEMP_CELSIUS)
 import homeassistant.helpers.config_validation as cv
@@ -84,7 +83,7 @@ class EsceaFire(ClimateDevice):
         if self._state['on']:
             return CURRENT_HVAC_HEAT
 
-        return CURRENT_HVAC_IDLE
+        return CURRENT_HVAC_OFF
 
     @property
     def hvac_modes(self) -> List[str]:
