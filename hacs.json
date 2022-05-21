@@ -1,5 +1,6 @@
 {
   "name": "Escea Fireplaces",
   "content_in_root": false,
-  "domains": ["climate", "sensor"]
+  "domains": ["climate", "sensor"],
+  "render_readme": true
 }
