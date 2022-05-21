@@ -23,3 +23,4 @@ This should support all network attached Escea fireplaces. It has been tested as
 - DX1500
 - DX1000
 - DS1400
+- DF700
