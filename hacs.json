@@ -1,7 +1,6 @@
 {
-  "name": "Escea Fireplaces",
+  "name": "Escea Fires",
   "content_in_root": false,
   "domains": ["climate", "sensor"],
-  "render_readme": true,
-  "iot_class": "cloud_poll"
+  "render_readme": true
 }
