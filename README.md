@@ -8,8 +8,7 @@ Flame Effect is supported as a preset.
 ## Installation
 
 Ensure the `custom_components/escea` directory is copied, linked or mounted as `CONFIG_DIR/custom_components/escea` in
-home assistant, and add `- platform: escea` to your `configuration.yaml`s `climate` config to load the platform. your
-`climate` platform.
+home assistant, and add `- platform: escea` to your `climate` config in `configuration.yaml` to load the platform.
 
 ```yaml
 climate:
