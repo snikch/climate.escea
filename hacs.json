@@ -1,6 +1,5 @@
 {
   "name": "Escea Fires",
   "content_in_root": false,
-  "domains": ["climate", "sensor"],
-  "render_readme": true
+  "domains": ["climate", "sensor"]
 }
