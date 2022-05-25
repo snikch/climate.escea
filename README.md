@@ -5,7 +5,7 @@
 Adds support for Escea network fireplaces with auto discovery. Fan Boost is supported as the Fan Mode (Auto vs On).
 Flame Effect is supported as a preset.
 
-![Escea Fireplace in HA](https://github.com/snikch/climate.escea/blob/master/assets/screenshot.png)![](https://github.com/snikch/climate.escea/blob/master/assets/icon.png)
+![Escea Fireplace in HA](https://github.com/snikch/climate.escea/blob/master/assets/screenshot.png)
 
 ## Installation
 
@@ -27,4 +27,4 @@ This should support all network attached Escea fireplaces. It has been tested as
 - DS1400
 - DF700
 
-![](https://github.com/snikch/climate.escea/blob/master/assets/logo.png)
+![](https://github.com/snikch/climate.escea/blob/master/assets/icon.png)![](https://github.com/snikch/climate.escea/blob/master/assets/logo.png)
