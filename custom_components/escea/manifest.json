@@ -2,7 +2,7 @@
   "domain": "escea",
   "name": "Escea Fires",
   "documentation": "https://github.com/snikch/climate.escea",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "requirements": ["escea==2.0.1"],
   "dependencies": [],
   "issue_tracker": "https://github.com/snikch/climate.escea/issues",
