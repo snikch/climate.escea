@@ -22,6 +22,15 @@ The integration should support all networked Escea Fireplaces, including:
 * DS1400
 * DF700
 
+## Installation
+
+After downloading this integration add the following to your `configuration.yaml` and then restart Home Assistant to load the platform.
+
+```yaml
+climate:
+  - platform: escea
+```
+
 ## Useful Links
 
 * [README](https://github.com/snikch/climate.escea/blob/master/README.md)
