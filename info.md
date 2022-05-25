@@ -30,7 +30,6 @@ After downloading this integration add the following to your `configuration.yaml
 climate:
   - platform: escea
 ```
-
 ## Useful Links
 
 * [README](https://github.com/snikch/climate.escea/blob/master/README.md)
@@ -41,3 +40,4 @@ climate:
 * [Smart App Setup Guide](https://www.escea.com/workspace/uploads/downloads/escea_smart_heat_user_guide.pdf)
 
 ![](https://github.com/snikch/climate.escea/blob/master/assets/logo.png)
+
