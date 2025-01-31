@@ -4,22 +4,30 @@ import escea
 from datetime import timedelta
 from typing import List, Optional
 
-from homeassistant.components.climate import ClimateEntity
+from homeassistant.components.climate import (
+    ClimateEntity,
+    ClimateEntityFeature,
+    HVACMode,
+    HVACAction
+)
+
 from homeassistant.components.climate.const import (
     FAN_AUTO, FAN_ON,
-    SUPPORT_PRESET_MODE, SUPPORT_FAN_MODE, SUPPORT_TARGET_TEMPERATURE, 
-    HVAC_MODE_OFF, HVAC_MODE_HEAT,
-    CURRENT_HVAC_OFF, CURRENT_HVAC_HEAT,
-    PRESET_NONE)
+    PRESET_NONE
+)
+
 from homeassistant.const import (
-    ATTR_TEMPERATURE, TEMP_CELSIUS)
+    ATTR_TEMPERATURE,
+    UnitOfTemperature
+)
+
 import homeassistant.helpers.config_validation as cv
 
 _LOGGER = logging.getLogger(__name__)
 
 PRESET_FLAME_EFFECT = 'flame_effect'
 
-OPERATION_LIST = [HVAC_MODE_HEAT, HVAC_MODE_OFF]
+OPERATION_LIST = [HVACMode.HEAT, HVACMode.OFF]
 FAN_OPERATION_LIST = [FAN_ON, FAN_AUTO]
 PRESET_LIST = [PRESET_NONE, PRESET_FLAME_EFFECT]
 
@@ -46,12 +54,13 @@ class EsceaFire(ClimateEntity):
         self.update()
 
     @property
-    def supported_features(self):
-        """Return the list of supported features."""
-        if self.preset_mode == PRESET_FLAME_EFFECT:
-            return (SUPPORT_TARGET_TEMPERATURE | SUPPORT_PRESET_MODE)
-        else:
-            return (SUPPORT_TARGET_TEMPERATURE | SUPPORT_FAN_MODE | SUPPORT_PRESET_MODE)
+    def supported_features(self) -> ClimateEntityFeature:
+        """Return the list of all supported features using the ClimateEntityFeature enum."""
+        return (
+            ClimateEntityFeature.TARGET_TEMPERATURE |
+            ClimateEntityFeature.FAN_MODE |
+            ClimateEntityFeature.PRESET_MODE
+        )
 
     @property
     def name(self):
@@ -66,7 +75,7 @@ class EsceaFire(ClimateEntity):
     @property
     def temperature_unit(self):
         """Return the unit of measurement which this fire uses."""
-        return TEMP_CELSIUS
+        return UnitOfTemperature.CELSIUS
 
     @property
     def current_temperature(self):
@@ -87,9 +96,9 @@ class EsceaFire(ClimateEntity):
     def hvac_action(self):
         """Return current HVAC action."""
         if self._state['on']:
-            return CURRENT_HVAC_HEAT
+            return HVACAction.HEATING
 
-        return CURRENT_HVAC_OFF
+        return HVACAction.OFF
 
     @property
     def hvac_modes(self) -> List[str]:
@@ -100,15 +109,15 @@ class EsceaFire(ClimateEntity):
     def hvac_mode(self):
         """Return current HVAC operation."""
         if self._state['on']:
-            return HVAC_MODE_HEAT
+            return HVACMode.HEAT
 
-        return HVAC_MODE_OFF
+        return HVACMode.OFF
 
     def set_hvac_mode(self, hvac_mode):
         """Set the operation mode."""
-        if hvac_mode == HVAC_MODE_HEAT:
+        if hvac_mode == HVACMode.HEAT:
             self._fire.power_on()
-        elif hvac_mode == HVAC_MODE_OFF:
+        elif hvac_mode == HVACMode.OFF:
             self._fire.power_off()
         else:
             _LOGGER.error("Invalid operation mode provided %s", hvac_mode)
